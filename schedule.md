@@ -3,7 +3,7 @@ Course | Assessment |  Due | Status
 datascitoolbox-009 | Quiz1 | 10/11/14 | done
  | Quiz2 | 17/11/14 | done
  | Quiz3 | 24/11/14 | done
- | Project | 24/11/14 [peer] |
+ | Project | 24/11/14 [peer] | done
  |
  rprog-009 | Quiz1 | 10/11/14 | done
  | Quiz2 | 17/11/14 | done
