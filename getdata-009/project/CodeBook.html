@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Overview</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h3>Overview</h3>
+
+<p>This CodeBook.md describes the variables, the original data, and transformations and work performed to clean up the data, and also the final data set which our scripts generate.</p>
+
+<p>Our data set is a subset of the &ldquo;Human Activity Recognition Using Smartphones Dataset, Version 1.0&rdquo; (HARUSD), described below. Our subset includes averages of all measurements of activities undertaken by subjects during the HARUSD collection.</p>
+
+<p>Here is a list of sections that follow:</p>
+
+<ol>
+<li>Background</li>
+<li>Data, including details about transformations of data</li>
+<li>Variables</li>
+</ol>
+
+<p>See the accompanying READMe.md file for instructions about running the scripts.</p>
+
+<h3>Background</h3>
+
+<p>The data set that was used is the &ldquo;Human Activity Recognition Using Smartphones Dataset, Version 1.0&rdquo;, by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. The data is archived here:
+<a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> </p>
+
+<p>For a detailed background, including other useful information, see the &#39;README.txt&#39; that comes with the orginal data set. Briefly, the data is from an experiment with a group of 30 volunteers, with age range 19-48 years. Subjects each performed six activities (&ldquo;WALKING&rdquo;&ldquo;, &quot;WALKING_UPSTAIRS&rdquo;, &ldquo;WALKING_DOWNSTAIRS&rdquo;, &ldquo;SITTING&rdquo;, &ldquo;STANDING&rdquo;, &ldquo;LAYING&rdquo;), while wearing a smartphone (Samsung Galaxy S II) on the waist. For these activities, 3-axial linear acceleration and 3-axial angular velocity were captured. The dataset was then randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. For more information, see the original data set, in particular, the &#39;features_info.txt&#39; file.</p>
+
+<p>From the original data set, the following files were used in developing our data set:</p>
+
+<ul>
+<li>&#39;features.txt&#39;: List of all features.</li>
+<li>&#39;activity_labels.txt&#39;: Links the class labels with their activity name.</li>
+<li>&#39;train/X_train.txt&#39;: Training set.</li>
+<li>&#39;train/y_train.txt&#39;: Training labels.</li>
+<li>&#39;train/subject_train.txt&#39;: Subject for each training observation.</li>
+<li>&#39;test/X_test.txt&#39;: Test set.</li>
+<li>&#39;test/y_test.txt&#39;: Test labels.</li>
+<li>&#39;test/subject_test.txt&#39;: Subject for each test observation.</li>
+</ul>
+
+<h3>Data</h3>
+
+<p>Our data set is drawn from the original HARUSD data set, where each observation in the data set includes:</p>
+
+<ul>
+<li>Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.</li>
+<li>Triaxial Angular velocity from the gyroscope. </li>
+<li>A 561-feature vector with time and frequency domain variables. </li>
+<li>Its activity label. </li>
+<li>An identifier of the subject who carried out the experiment.</li>
+</ul>
+
+<p>Regarding formating of the HARUSD measurements:</p>
+
+<ul>
+<li>Features are normalized and bounded within [-1,1].</li>
+<li>Each feature vector is a row on the text file.</li>
+</ul>
+
+<h4>Transformations of the HARUSD data to make our data set:</h4>
+
+<ul>
+<li>The training and the test sets have been merged (from &#39;train/X_train.txt&#39; &amp; &#39;train/X_test.txt&#39;).</li>
+<li>Column labels for measurement variables have been replaced with descriptive names (from &#39;features.txt&#39;).</li>
+<li>Only those measurement variables recording means and standard deviations of all observations have been retained (the rest were discarded).</li>
+<li>An activities column has been added with descriptive names for activities carried out by subjects, such as &ldquo;WALKING&rdquo;, &ldquo;LAYING&rdquo;, etc (from &#39;activity_labels.txt&#39;). This column was derived by transforming an initial set of numeric labels of the activities (from &#39;train/y_train.txt&#39; &amp; &#39;test/y_test.txt&#39;).</li>
+<li>A column showing the subject for each observation has been added (from &#39;train/subject_train.txt&#39; &amp; &#39;test/subject_test.txt&#39;).</li>
+<li>Finally, all measurements for activities and subjects were averaged, and this is the figure recorded in the final data set.</li>
+<li>The final data table consists of 180 rows, i.e. 6 activities x 30 subjects.</li>
+</ul>
+
+<h3>Variables</h3>
+
+<p>From the 561 variables HARUSD, only those pertaining to means and standard deviations were retained for the final data set, and these plus variables for subjects (&ldquo;subjs&rdquo;) and descriptive names of activities (&ldquo;activityNames&rdquo;) are listed below. The descriptive labels for the original HARUSD measurement variables are retained as these are usefully precise, and the following key will help in deciphering these:</p>
+
+<ul>
+<li>&#39;t&#39;: referring to signals in time domain</li>
+<li>&#39;f&#39;: referring to Fast Fourier Transform (FFT) applied to some of the time domain signals</li>
+<li>&#39;-XYZ&#39;: denotes 3-axial signals in the X, Y and Z directions</li>
+<li>&#39;Acc&#39;, &#39;Gyro&#39;: denote accelerometer and gyroscope measurements</li>
+<li>&#39;BodyAcc&#39;, &#39;GravityAcc&#39;: acceleration signal separated into body and gravity acceleration signals</li>
+<li>&#39;Jerk&#39;: body linear acceleration and angular velocity derived in time to obtain Jerk signals</li>
+<li>&#39;Mag&#39;: magnitude of three-dimensional signals calculated using the Euclidean norm</li>
+</ul>
+
+<ol>
+<li>&ldquo;subjs&rdquo;</li>
+<li>&ldquo;activityNames&rdquo;</li>
+<li>&ldquo;tBodyAcc-mean()-X&rdquo;</li>
+<li>&ldquo;tBodyAcc-mean()-Y&rdquo;</li>
+<li>&ldquo;tBodyAcc-mean()-Z&rdquo;</li>
+<li>&ldquo;tBodyAcc-std()-X&rdquo;</li>
+<li>&ldquo;tBodyAcc-std()-Y&rdquo;</li>
+<li>&ldquo;tBodyAcc-std()-Z&rdquo;</li>
+<li>&ldquo;tGravityAcc-mean()-X&rdquo;</li>
+<li>&ldquo;tGravityAcc-mean()-Y&rdquo;</li>
+<li>&ldquo;tGravityAcc-mean()-Z&rdquo;</li>
+<li>&ldquo;tGravityAcc-std()-X&rdquo;</li>
+<li>&ldquo;tGravityAcc-std()-Y&rdquo;</li>
+<li>&ldquo;tGravityAcc-std()-Z&rdquo;</li>
+<li>&ldquo;tBodyAccJerk-mean()-X&rdquo;</li>
+<li>&ldquo;tBodyAccJerk-mean()-Y&rdquo;</li>
+<li>&ldquo;tBodyAccJerk-mean()-Z&rdquo;</li>
+<li>&ldquo;tBodyAccJerk-std()-X&rdquo;</li>
+<li>&ldquo;tBodyAccJerk-std()-Y&rdquo;</li>
+<li>&ldquo;tBodyAccJerk-std()-Z&rdquo;</li>
+<li>&ldquo;tBodyGyro-mean()-X&rdquo;</li>
+<li>&ldquo;tBodyGyro-mean()-Y&rdquo;</li>
+<li>&ldquo;tBodyGyro-mean()-Z&rdquo;</li>
+<li>&ldquo;tBodyGyro-std()-X&rdquo;<br/></li>
+<li>&ldquo;tBodyGyro-std()-Y&rdquo;</li>
+<li>&ldquo;tBodyGyro-std()-Z&rdquo;</li>
+<li>&ldquo;tBodyGyroJerk-mean()-X&rdquo;</li>
+<li>&ldquo;tBodyGyroJerk-mean()-Y&rdquo;</li>
+<li>&ldquo;tBodyGyroJerk-mean()-Z&rdquo;</li>
+<li>&ldquo;tBodyGyroJerk-std()-X&rdquo;</li>
+<li>&ldquo;tBodyGyroJerk-std()-Y&rdquo;</li>
+<li>&ldquo;tBodyGyroJerk-std()-Z&rdquo;</li>
+<li>&ldquo;tBodyAccMag-mean()&rdquo;</li>
+<li>&ldquo;tBodyAccMag-std()&rdquo;</li>
+<li>&ldquo;tGravityAccMag-mean()&rdquo;</li>
+<li>&ldquo;tGravityAccMag-std()&rdquo;</li>
+<li>&ldquo;tBodyAccJerkMag-mean()&rdquo;</li>
+<li>&ldquo;tBodyAccJerkMag-std()&rdquo;</li>
+<li>&ldquo;tBodyGyroMag-mean()&rdquo;</li>
+<li>&ldquo;tBodyGyroMag-std()&rdquo;</li>
+<li>&ldquo;tBodyGyroJerkMag-mean()&rdquo;</li>
+<li>&ldquo;tBodyGyroJerkMag-std()&rdquo;</li>
+<li>&ldquo;fBodyAcc-mean()-X&rdquo;</li>
+<li>&ldquo;fBodyAcc-mean()-Y&rdquo;</li>
+<li>&ldquo;fBodyAcc-mean()-Z&rdquo;</li>
+<li>&ldquo;fBodyAcc-std()-X&rdquo;</li>
+<li>&ldquo;fBodyAcc-std()-Y&rdquo;</li>
+<li>&ldquo;fBodyAcc-std()-Z&rdquo;<br/></li>
+<li>&ldquo;fBodyAcc-meanFreq()-X&rdquo;</li>
+<li>&ldquo;fBodyAcc-meanFreq()-Y&rdquo;</li>
+<li>&ldquo;fBodyAcc-meanFreq()-Z&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-mean()-X&rdquo;<br/></li>
+<li>&ldquo;fBodyAccJerk-mean()-Y&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-mean()-Z&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-std()-X&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-std()-Y&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-std()-Z&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-meanFreq()-X&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-meanFreq()-Y&rdquo;</li>
+<li>&ldquo;fBodyAccJerk-meanFreq()-Z&rdquo;</li>
+<li>&ldquo;fBodyGyro-mean()-X&rdquo;</li>
+<li>&ldquo;fBodyGyro-mean()-Y&rdquo;</li>
+<li>&ldquo;fBodyGyro-mean()-Z&rdquo;</li>
+<li>&ldquo;fBodyGyro-std()-X&rdquo;</li>
+<li>&ldquo;fBodyGyro-std()-Y&rdquo;</li>
+<li>&ldquo;fBodyGyro-std()-Z&rdquo;</li>
+<li>&ldquo;fBodyGyro-meanFreq()-X&rdquo;</li>
+<li>&ldquo;fBodyGyro-meanFreq()-Y&rdquo;<br/></li>
+<li>&ldquo;fBodyGyro-meanFreq()-Z&rdquo;</li>
+<li>&ldquo;fBodyAccMag-mean()&rdquo;</li>
+<li>&ldquo;fBodyAccMag-std()&rdquo;</li>
+<li>&ldquo;fBodyAccMag-meanFreq()&rdquo;<br/></li>
+<li>&ldquo;fBodyBodyAccJerkMag-mean()&rdquo;</li>
+<li>&ldquo;fBodyBodyAccJerkMag-std()&rdquo;</li>
+<li>&ldquo;fBodyBodyAccJerkMag-meanFreq()&rdquo;</li>
+<li>&ldquo;fBodyBodyGyroMag-mean()&rdquo;</li>
+<li>&ldquo;fBodyBodyGyroMag-std()&rdquo;</li>
+<li>&ldquo;fBodyBodyGyroMag-meanFreq()&rdquo;</li>
+<li>&ldquo;fBodyBodyGyroJerkMag-mean()&rdquo;</li>
+<li>&ldquo;fBodyBodyGyroJerkMag-std()&rdquo;</li>
+<li>&ldquo;fBodyBodyGyroJerkMag-meanFreq()&rdquo;</li>
+</ol>
+
+</body>
+
+</html>
+

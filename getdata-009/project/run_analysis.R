@@ -14,12 +14,25 @@ suppressMessages(library(data.table))
 #####################################################
 # Step 1. Merges the training and the test sets to create one data set.
 
+#  Download data
+data_url = "http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip"
+#   Create a temporary directory
+td = tempdir()
+#   Create the placeholder file
+tf = tempfile(tmpdir=td, fileext=".zip")
+#   Download into the placeholder file
+download.file(data_url, tf)
+#   Get the name of the first file in the zip archive
+fnames = unzip(tf, list=TRUE)$Name
+#   Unzip the file to the temporary directory
+unzip(tf, files=fnames, exdir=td, overwrite=TRUE)
+
 #  Load training and the test data sets
-training_data <- data.table(read.table("dataset/train/X_train.txt"))
-training_labels <- data.table(read.table("dataset/train/y_train.txt"))
-training_subjs <- data.table(read.table("dataset/train/subject_train.txt"))
-testing_data <- data.table(read.table("dataset/test/X_test.txt"))
-testing_labels <- data.table(read.table("dataset/test/y_test.txt"))
+training_data <- data.table(read.table(paste(td, "UCI HAR Dataset/train/X_train.txt", sep="/")))
+training_labels <- data.table(read.table(paste(td, "UCI HAR Dataset/train/y_train.txt", sep="/")))
+training_subjs <- data.table(read.table(paste(td, "UCI HAR Dataset/train/subject_train.txt", sep="/")))
+testing_data <- data.table(read.table(paste(td, "UCI HAR Dataset/test/X_test.txt", sep="/")))
+testing_labels <- data.table(read.table(paste(td, "UCI HAR Dataset/test/y_test.txt", sep="/")))
 
 #  Add columns to each data set for subjects
 training_data[,subjs:=training_subjs]
@@ -35,7 +48,7 @@ data_set <- rbind(training_data, testing_data)
 #  Provide descriptive names for measurement variables
 #   NB. This is Step 4, carried out here as it greatly simplifies the task in Step 2
 #   of extracting the mean and standard deviation for each measurement
-feats <- read.table("dataset/features.txt")
+feats <- read.table(paste(td, "UCI HAR Dataset/features.txt", sep="/"))
 setnames(data_set, names(subset(data_set, select=-c(subjs,activities))), as.character(feats$V2))
 #####################################################
 

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Overview</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h3>Overview</h3>
+
+<p>This README.md file explains how all of the scripts work and how they are connected. </p>
+
+<p>The purpose of this project is to demonstrate and ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. </p>
+
+<p>For the peroject, the following have been submitted: 
+1. <code>getdata009_Project_tidyDataFile.txt</code>: a tidy data set as described below, submitted to Coursera
+2. <code>run_analysis.R</code>: the script for performing the analysis, uploaded to this repo
+3. <code>CodeBook.md</code>: a code book that describes the variables, the data, and any transformations or work performed to clean up the data, uploaded to this repo</p>
+
+<h3>Background to the task</h3>
+
+<p>One of the most exciting areas in all of data science right now is wearable computing. Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the Coursera Getting and Collecting Data course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained: </p>
+
+<p><a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> </p>
+
+<p>Here are the data for the project: </p>
+
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a> </p>
+
+<h3>Getting started</h3>
+
+<p>To run the scripts, do the following in an R environment:</p>
+
+<blockquote>
+<p>source(&ldquo;run_analysis.R&rdquo;)</p>
+</blockquote>
+
+<p>To load and view the data, do the following in an R environment:</p>
+
+<blockquote>
+<p>data &lt;- read.table(&ldquo;getdata009_Project_tidyDataFile.txt&rdquo;, header = TRUE)</p>
+
+<p>View(data)</p>
+</blockquote>
+
+<h3>How the scripts work</h3>
+
+<p>The scripts are arranged in the following steps:</p>
+
+<ul>
+<li>Step 1: loading and and merging the training and test data sets
+
+<ul>
+<li>Here and throughout, where possible tools from the <code>data.table</code> library were used.</li>
+<li>Note also that Step 4 was implemented at this stage, so that descriptive lables were able to be used in Step 2, which greatly simplified the latter.</li>
+</ul></li>
+<li>Step2: extracting only the measurements on the mean and standard deviation for each measurement
+
+<ul>
+<li>This was carried out by creating an index using the &ldquo;grepl&rdquo; function (matching column names containing terms &ldquo;mean&rdquo;, &ldquo;std&rdquo;, &ldquo;subjs&rdquo; or &ldquo;activities&rdquo;), and then using this index with the &ldquo;subset&rdquo; function.</li>
+</ul></li>
+<li>Step3: setting descriptive activity names to name the activities in the data set
+
+<ul>
+<li>A look-up dictionary was created using the list of activity labels (from &#39;activity_labels.txt&#39; in the original data set), and then &ldquo;sapply&rdquo; was used to replace the number values with the appropriate character values labelling each activity.</li>
+</ul></li>
+<li>Step4: setting appropriately descriptive labels for the measurement variables
+
+<ul>
+<li>Carried out during Step 1.</li>
+</ul></li>
+<li>Step5: From the original data set in step 4, a second, independent tidy data set with the average of each variable for each activity and each subject was created.
+
+<ul>
+<li>Using tools from the <code>data.table</code> library, all retained measurement variables were averaged, grouped by subject and type of activity. </li>
+<li>A text file &ldquo;getdata009_Project_tidyDataFile.txt&rdquo; is written, containing the data from this step.</li>
+</ul></li>
+</ul>
+
+</body>
+
+</html>
+

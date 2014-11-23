@@ -65,7 +65,6 @@ From the 561 variables HARUSD, only those pertaining to means and standard devia
 * 'Jerk': body linear acceleration and angular velocity derived in time to obtain Jerk signals
 * 'Mag': magnitude of three-dimensional signals calculated using the Euclidean norm
 
-
 1. "subjs"
 2. "activityNames"
 3. "tBodyAcc-mean()-X"
