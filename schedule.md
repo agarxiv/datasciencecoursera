@@ -24,4 +24,4 @@ datascitoolbox-009 | Quiz1 | 10/11/14 | done
  repdata-008 | Quiz1 | 10/11/14 | done
  | Quiz2 | 17/11/14 | done
  | Project1 | 17/11/14 | done
- | Project2 | 26/11/14 | 
+ | Project2 | 26/11/14 | done
