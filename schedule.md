@@ -8,7 +8,7 @@ datascitoolbox-009 | Quiz1 | 10/11/14 | done
  rprog-009 | Quiz1 | 10/11/14 | done
  | Quiz2 | 17/11/14 | done
  | Quiz3 | 24/11/14 | done
- | Quiz4 | 01/12/14 |
+ | Quiz4 | 01/12/14 | done
  | PA-swirl | 01/12/14 | done
  | PA1 | 01/12/14 | done 
  | PA2 | 24/11/14 | done
