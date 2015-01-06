@@ -1,27 +1,34 @@
 Course | Assessment |  Due | Status
 :-: | :-:|:-:|:-:
-datascitoolbox-009 | Quiz1 | 10/11/14 | done
- | Quiz2 | 17/11/14 | done
- | Quiz3 | 24/11/14 | done
- | Project | 24/11/14 [peer] | done
+datascitoolbox-010 | Quiz1 | 12/01/15 | 
+ | Quiz2 | 19/01/15 | 
+ | Quiz3 | 26/01/15 | 
+ | Project | 26/01/15 [peer] | 
  |
- rprog-009 | Quiz1 | 10/11/14 | done
- | Quiz2 | 17/11/14 | done
- | Quiz3 | 24/11/14 | done
- | Quiz4 | 01/12/14 | done
- | PA-swirl | 01/12/14 | done
- | PA1 | 01/12/14 | done 
- | PA2 | 24/11/14 | done
- | PA3 | 01/12/14 | done
+ rprog-010 | Quiz1 | 12/01/15 | 
+ | Quiz2 | 19/01/15 | 
+ | Quiz3 | 26/01/15 | 
+ | Quiz4 | 02/02/15 | 
+ | PA-swirl | 02/02/15 | 
+ | PA1 | 19/01/15 | 
+ | PA2 | 26/01/15 | 
+ | PA3 | 02/02/15 | 
  |
- getdata-009 | Quiz1 | 10/11/14 | done
- | Quiz2 | 17/11/14 | done
- | Quiz3 | 24/11/14 | done
- | Quiz4| 01/12/14 | done
- | PA-swirl | 01/12/14 | done
- | Project | 24/11/14 | done
+ exdata-010 | Quiz1 | 12/01/15 | 
+ | Quiz2 | 19/01/15 | 
+ | Project1 | 12/01/15 | 
+ | Project2 | 26/01/15 | 
  |
- repdata-008 | Quiz1 | 10/11/14 | done
- | Quiz2 | 17/11/14 | done
- | Project1 | 17/11/14 | done
- | Project2 | 26/11/14 | done
+ statinference-010 | Quiz1 | 12/01/15 | 
+ | Quiz2 | 19/01/15 | 
+ | Quiz3 | 26/01/15 | 
+ | Quiz4 | 02/02/15 | 
+ | PA-sirl | 01/02/15 | 
+ | Project | 26/01/15 | 
+ |
+ predmachlearn-010 | Quiz1 | 12/01/15 | 
+ | Quiz2 | 19/01/15 | 
+ | Quiz3 | 26/01/15 | 
+ | Quiz4 | 02/02/15 | 
+ | Project writeup | 26/01/15 | 
+ | Project submission | 26/01/15 | 
