@@ -1,7 +1,7 @@
 ########################################################################
 ## 
 ## R code as part solution to Project 1,
-## Coursera course exdata-008
+## Coursera course exdata-010
 ## 
 ## Author: agarxiv
 ## 
