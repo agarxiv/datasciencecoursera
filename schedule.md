@@ -16,4 +16,4 @@ Course | Assessment |  Due | Status
  | Quiz3 | 22/02/15 | 
  | Quiz4 | 22/02/15 | 
  | Project-writeup | 22/02/15 | 
- | Project-submission | 22/02/15 | 
+ | Project-submission | 22/02/15 |
