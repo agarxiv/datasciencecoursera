@@ -1,7 +1,7 @@
 Course | Assessment |  Due | Status
 :-: | :-:|:-:|:-:
- exdata-011 | Quiz1 | 08/02/15 | 
- | Quiz2 | 15/02/15 | 
+ exdata-011 | Quiz1 | 08/02/15 | done
+ | Quiz2 | 15/02/15 | done
  | Project1 | 08/02/15 | 
  | Project2 | 22/02/15 | 
 :-: | :-:|:-:|:-:
